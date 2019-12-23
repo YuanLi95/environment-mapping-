@@ -1,10 +1,4 @@
 
-# 环境纹理贴图和模型加载
-
-在前面[AssImp纹理加载](http://blog.csdn.net/wangdingqiaoit/article/details/52014321)一节，我们使用AssImp库加载了一个纳米战斗服模型，这里对模型使用反射环境贴图加以改进。之前使用的是diffuse map 和specular map,这里将使用的方法称之为reflection map。通过加载模型中的reflection map，决定渲染的物体中哪部分需要做反射环境贴图以及环境贴图的强度系数，而不是像上面球体那样，整个执行反射环境贴图。
-
-利用AssImp加载Reflection map，遇到的麻烦在于，AssImp对Reflection map默认支持不好，因此这里使用的技巧是修改obj资源和代码，做出调整。你可以从[我的github下载](https://github.com/wangdingqiao/noteForOpenGL/tree/master/resources/models/nanosuit_reflection)，修改后的模型。
-
 在资源中使用aiTextureType_AMBIENT作为reflection map，在model.h代码中添加处理:
 
 ```cpp
